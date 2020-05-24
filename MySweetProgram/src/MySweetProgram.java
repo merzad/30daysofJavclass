@@ -1,32 +1,29 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MySweetProgram {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	System.out.println("Enter Your Name ");
+	public static void main(String[] args) throws FileNotFoundException {
+		
 	
-	Scanner in =new Scanner(System.in);
-	String S = in.nextLine();
+	Scanner in = new Scanner(new File("students.txt"));
 	
-	if (S.equals("Celeb")) {
-		
-		System.out.println("Hey Celeb");
-		
-	}else if (S.equals("Sally")) {
-		System.out.println("Hey Sally");
-		
-	}else {
-		
-		System.out.println("You are not welcome here");
-	}	
+	List<String> students = new ArrayList<String>();
 	
 	
-	int i=0;
-	while (i<10) {
-		System.out.println("i is: " + i);
-		i++;
+	while (in.hasNextLine()) {
+		
+		students.add(in.nextLine());
 	}
+	
+	for (int i=0; i<students.size(); i++){
+		
+		System.out.println("name: " + students.get(i));
+	}
+		
 	in.close();
 	}
 }
